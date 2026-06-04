@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+function App() {
+  return (
+    <h1>Hola Mundo</h1>
+  )
+}
 
-export default defineConfig({
-  plugins: [react()],
-})
+export default App
