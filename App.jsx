@@ -1,7 +1,4 @@
-function App() {
-  return (
-    <h1>Hola Mundo</h1>
-  )
-}
-
-export default App
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#1a5c1a"/>
+  <text y=".9em" font-size="80" x="10">🌿</text>
+</svg>
