@@ -1003,7 +1003,7 @@ const especieColor = {
 const catIcon = {
   "Antiparasitarios": "🦠", "Analgésicos y Antipiréticos": "💊",
   "Reproductivos": "🔬", "Vitaminas y Minerales": "⚡",
-  "Mastitis": "🐄", "Anticoccidiales": "🔴", "Control de Plagas": "🪲", "Suplementos Mascotas": "🐾", "Dermatología Mascotas": "🧴",   "Higiene Mascotas": "🛁",
+  "Mastitis": "🐄", "Anticoccidiales": "🔴", "Control de Plagas": "🪲", "Suplementos Mascotas": "🐾", "Dermatología Mascotas": "🧴",   "Higiene Mascotas": "🛁",};
 
 // ─── MÓDULOS DE CAPACITACIÓN (28) ───────────────────────────────────────────
 const MODULOS = [
