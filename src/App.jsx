@@ -993,18 +993,6 @@ const PRODUCTS = [
 
 const CATEGORIAS = ["Todas", ...new Set(PRODUCTS.map(p => p.categoria))];
 const LABORATORIOS = ["Todos", ...new Set(PRODUCTS.map(p => p.laboratorio))];
-const ESPECIES_LIST = ["Todas", "Bovinos", "Equinos", "Porcinos", "Ovinos", "Aves", "Mascotas", "Instalaciones pecuarias"];
-
-const especieColor = {
-  Aves: "#60a5fa", "Instalaciones pecuarias": "#333333",
-  Bovinos: "#f59e0b", Porcinos: "#f87171", Mascotas: "#a78bfa",
-  Equinos: "#2d7a2d", Ovinos: "#fb923c",
-};
-const catIcon = {
-  "Antiparasitarios": "🦠", "Analgésicos y Antipiréticos": "💊",
-  "Reproductivos": "🔬", "Vitaminas y Minerales": "⚡",
-  "Mastitis": "🐄", "Anticoccidiales": "🔴", "Control de Plagas": "🪲", "Suplementos Mascotas": "🐾", "Dermatología Mascotas": "🧴",   "Higiene Mascotas": "🛁",
-};
 
 // ─── MÓDULOS DE CAPACITACIÓN (28) ───────────────────────────────────────────
 const MODULOS = [
@@ -2056,89 +2044,8 @@ function CatalogApp({ distribuidor, onVolver }) {
       {selected && <Modal product={selected} onClose={() => setSelected(null)} />}
     </div>
   );
-
-const TABS = [
-  { id:"queEs",        label:"¿Qué es?",        icon:"📋" },
-  { id:"paraQueSirve", label:"¿Para qué sirve?", icon:"🎯" },
-  { id:"comoSeUsa",    label:"¿Cómo se usa?",    icon:"💉" },
-  { id:"ventajas",     label:"Ventajas",          icon:"✅" },
-  { id:"dosificacion", label:"Dosificación",      icon:"⚖️" },
-];
-
-const CATEGORIAS_FILTRO = ["Todas", "Analgésicos y Antipiréticos", "Antibióticos", "Antiinflamatorios", "Antiparasitarios", "Dermatología Mascotas", "Mastitis", "Reproductivos", "Salud Pública", "Suplementos Mascotas", "Vitaminas y Minerales"];
-const LABS_FILTRO = ["Todos", "Coaspharma", "Tecnocalidad", "QualiVet", "Comervet"];
-
-const catColors = {
-  "Analgésicos y Antipiréticos":"#5c3a1a","Antibióticos":"#1a4a5c","Antiinflamatorios":"#4a1a5c",
-  "Antiparasitarios":"#1a5c1a","Dermatología Mascotas":"#5c4a1a","Mastitis":"#2d7a2d",
-  "Reproductivos":"#5c1a3a","Salud Pública":"#3a3a1a","Suplementos Mascotas":"#1a3a5c",
-  "Vitaminas y Minerales":"#b8860b","Antieméticos":"#1a5c4a",
-};
-
-async function saveResult(r) {
-  try { await window.storage.set(`eval_${r.distribuidorId}_${Date.now()}`, JSON.stringify(r), true); } catch(e){}
-}
-async function loadResults(did) {
-  try {
-    const list = await window.storage.list("eval_", true);
-    const results = [];
-    for (const key of (list?.keys || [])) {
-      try { const item = await window.storage.get(key, true); if(item?.value){ const p=JSON.parse(item.value); if(p.distribuidorId===did) results.push(p); } } catch(e){}
-    }
-    return results.sort((a,b)=>b.timestamp-a.timestamp);
-  } catch(e){ return []; }
 }
 
-// ── LOGIN ────────────────────────────────────────────────────────────────────
-function Login({ onLogin }) {
-  const [pin, setPin] = useState("");
-  const [error, setError] = useState("");
-  const [shake, setShake] = useState(false);
-  const digits = ["1","2","3","4","5","6","7","8","9","","0","⌫"];
-  const handleDigit = d => {
-    if(pin.length>=4) return;
-    const next = pin+d;
-    setPin(next);
-    if(next.length===4){
-      const found = DISTRIBUIDORES.find(x=>x.pin===next);
-      if(found){ onLogin(found); }
-      else { setShake(true); setError("PIN incorrecto."); setTimeout(()=>{setPin("");setShake(false);setError("");},900); }
-    }
-  };
-  return (
-    <div style={{minHeight:"100vh",background:"#f5f5f5",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",fontFamily:"'DM Sans',sans-serif",padding:"20px"}}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800;900&display=swap');*{box-sizing:border-box}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}`}</style>
-      <div style={{marginBottom:"32px",textAlign:"center"}}>
-        <div style={{width:"64px",height:"64px",margin:"0 auto 12px",background:"linear-gradient(135deg,#2d7a2d,#1a5c1a)",borderRadius:"18px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"30px"}}>🎓</div>
-        <div style={{fontSize:"22px",fontWeight:900,color:"#1a5c1a"}}>PESTAR</div>
-        <div style={{fontSize:"11px",color:"#555555",fontWeight:600,letterSpacing:"0.08em",marginTop:"2px"}}>MÓDULO DE CAPACITACIÓN</div>
-      </div>
-      <div style={{background:"#ffffff",border:"1px solid rgba(45,122,45,0.25)",borderRadius:"20px",padding:"32px 28px",width:"100%",maxWidth:"320px",boxShadow:"0 8px 32px rgba(45,122,45,0.12)",animation:shake?"shake 0.4s ease":"none"}}>
-        <div style={{textAlign:"center",marginBottom:"24px"}}>
-          <div style={{fontSize:"15px",fontWeight:700,color:"#1a1a1a",marginBottom:"4px"}}>Ingresa tu PIN de acceso</div>
-          <div style={{fontSize:"12px",color:"#666666"}}>El mismo PIN del catálogo de productos</div>
-        </div>
-        <div style={{display:"flex",justifyContent:"center",gap:"14px",marginBottom:"28px"}}>
-          {[0,1,2,3].map(i=>(
-            <div key={i} style={{width:"14px",height:"14px",borderRadius:"50%",background:i<pin.length?(error?"#f87171":"#2d7a2d"):"rgba(45,122,45,0.2)",transition:"all 0.15s"}}/>
-          ))}
-        </div>
-        {error && <div style={{textAlign:"center",color:"#f87171",fontSize:"12px",fontWeight:600,marginBottom:"16px",background:"rgba(248,113,113,0.08)",borderRadius:"8px",padding:"8px"}}>{error}</div>}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"10px"}}>
-          {digits.map((d,i)=>(
-            <button key={i} onClick={()=>d==="⌫"?setPin(p=>p.slice(0,-1)):d!==""?handleDigit(d):null} disabled={d===""}
-              style={{background:d==="⌫"?"rgba(248,113,113,0.1)":"rgba(45,122,45,0.06)",border:d==="⌫"?"1px solid rgba(248,113,113,0.2)":"1px solid rgba(45,122,45,0.2)",borderRadius:"12px",height:"52px",color:d==="⌫"?"#f87171":"#1a1a1a",fontSize:d==="⌫"?"18px":"20px",fontWeight:700,cursor:d===""?"default":"pointer",opacity:d===""?0:1,fontFamily:"inherit"}}
-              onMouseDown={e=>{if(d!=="")e.currentTarget.style.transform="scale(0.93)";}}
-              onMouseUp={e=>{e.currentTarget.style.transform="scale(1)";}}
-            >{d}</button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ── MENU ─────────────────────────────────────────────────────────────────────
 function Menu({ distribuidor, onSelect, onVerResultados, onSalir }) {
   const [cat, setCat] = useState("Todas");
   const [lab, setLab] = useState("Todos");
