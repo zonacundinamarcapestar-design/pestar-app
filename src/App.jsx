@@ -2379,6 +2379,7 @@ export default function App() {
   const [distribuidor, setDistribuidor] = useState(null);
   const [modulo, setModulo] = useState("home"); // home | catalog | training
 
+  if (!distribuidor) return <Login onLogin={(d) => setDistribuidor(d)} />;
   if (modulo === "catalog") return <CatalogApp distribuidor={distribuidor} onVolver={() => setModulo("home")} />;
   if (modulo === "training") return <TrainingApp distribuidor={distribuidor} onVolver={() => setModulo("home")} />;
   return (
@@ -2386,7 +2387,7 @@ export default function App() {
       distribuidor={distribuidor}
       onGoCatalog={() => setModulo("catalog")}
       onGoTraining={() => setModulo("training")}
-      onSalir={() => setDistribuidor(null)}
+      onSalir={() => { setDistribuidor(null); setModulo("home"); }}
     />
   );
 }
