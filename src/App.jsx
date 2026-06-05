@@ -1003,7 +1003,8 @@ const especieColor = {
 const catIcon = {
   "Antiparasitarios": "🦠", "Analgésicos y Antipiréticos": "💊",
   "Reproductivos": "🔬", "Vitaminas y Minerales": "⚡",
-  "Mastitis": "🐄", "Anticoccidiales": "🔴", "Control de Plagas": "🪲", "Suplementos Mascotas": "🐾", "Dermatología Mascotas": "🧴",   "Higiene Mascotas": "🛁",};
+  "Mastitis": "🐄", "Anticoccidiales": "🔴", "Control de Plagas": "🪲", "Suplementos Mascotas": "🐾", "Dermatología Mascotas": "🧴",   "Higiene Mascotas": "🛁",
+};
 
 // ─── MÓDULOS DE CAPACITACIÓN (28) ───────────────────────────────────────────
 const MODULOS = [
@@ -1931,7 +1932,6 @@ function CatalogApp({ distribuidor, onVolver }) {
   const [especie, setEspecie] = useState("Todas");
   const [selected, setSelected] = useState(null);
 
-  ;
 
   const filtered = PRODUCTS.filter(p => {
     const q = search.toLowerCase();
@@ -2458,7 +2458,6 @@ function TrainingApp({ distribuidor, onVolver }) {
   const [vista, setVista] = useState("menu");
   const [moduloActivo, setModuloActivo] = useState(null);
 
-  ;
   if(vista==="resultados") return <Resultados distribuidor={distribuidor} onVolver={()=>setVista("menu")}/>;
   if(vista==="aprendizaje"&&moduloActivo) return <ModuloAprendizaje modulo={moduloActivo} onVolver={()=>setVista("menu")} onEvaluar={()=>setVista("evaluacion")}/>;
   if(vista==="evaluacion"&&moduloActivo) return <Evaluacion modulo={moduloActivo} distribuidor={distribuidor} onVolver={()=>setVista("menu")} onTerminar={()=>setVista("resultados")}/>;
