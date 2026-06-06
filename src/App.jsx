@@ -882,7 +882,7 @@ const PRODUCTS = [
   },
 
   {
-    id: 70,
+    id: 71,
     nombre: "HIZOL-T", laboratorio: "Tecnocalidad", categoria: "Dermatología Mascotas",
     especie: ["Mascotas"],
     principioActivo: "Ácido Salicílico + Ácido Benzoico + Ácido Bórico (solución ótica)",
@@ -2006,10 +2006,10 @@ function CatalogApp({ distribuidor, onVolver }) {
             <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>{distribuidor.ciudad}</div>
           </div>
           <button onClick={() => onVolver()} style={{
-            background: "rgba(45,122,45,0.15)", border: "1px solid rgba(45,122,45,0.25)",
-            color: "#555555", borderRadius: "6px", padding: "3px 8px",
-            fontSize: "11px", cursor: "pointer", fontFamily: "inherit", marginLeft: "4px",
-          }}>Salir</button>
+            background: "rgba(255,255,255,0.25)", border: "1px solid rgba(255,255,255,0.5)",
+            color: "#ffffff", borderRadius: "6px", padding: "4px 10px",
+            fontSize: "12px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", marginLeft: "4px",
+          }}>← Menú</button>
         </div>
       </div>
 
@@ -2083,10 +2083,10 @@ function Menu({ distribuidor, onSelect, onVerResultados, onSalir }) {
               style={{width:"100%",background:"rgba(255,255,255,0.15)",border:"1px solid rgba(255,255,255,0.3)",borderRadius:"8px",padding:"7px 12px 7px 32px",color:"#ffffff",fontSize:"12px",outline:"none",fontFamily:"inherit"}}/>
           </div>
           <select value={cat} onChange={e=>setCat(e.target.value)} style={selStyle}>
-            {CATEGORIAS_FILTRO.map(c=><option key={c} style={{background:"#1a5c1a",color:"#ffffff"}}>{c}</option>)}
+            {CATEGORIAS_CAP.map(c=><option key={c} style={{background:"#1a5c1a",color:"#ffffff"}}>{c}</option>)}
           </select>
           <select value={lab} onChange={e=>setLab(e.target.value)} style={selStyle}>
-            {LABS_FILTRO.map(l=><option key={l} style={{background:"#1a5c1a",color:"#ffffff"}}>{l}</option>)}
+            {LABS_CAP.map(l=><option key={l} style={{background:"#1a5c1a",color:"#ffffff"}}>{l}</option>)}
           </select>
         </div>
       </div>
