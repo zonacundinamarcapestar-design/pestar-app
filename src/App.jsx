@@ -1802,7 +1802,7 @@ const catColors = {
 };
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbyfNK1T50sS3kclfxdGR-hXLV4NIqRZ7m0BlbCytJcB0WfHv0g-PJHx04YwmWNNXdlCgw/exec";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxSatOR0TRNmsBdsIebtpCZHk6NQjDbzrg-uPYRrgTCwp8Yw7mGWkm3TfMzL3COe2M-Tw/exec";
 
 async function saveResult(r) {
   try {
@@ -1810,12 +1810,18 @@ async function saveResult(r) {
     localStorage.setItem(key, JSON.stringify(r));
   } catch(e){}
   try {
-    await fetch(SHEET_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(r),
+    const params = new URLSearchParams({
+      fecha:           r.fecha,
+      vendedor:        r.vendedor,
+      establecimiento: r.distribuidorNombre,
+      producto:        r.productoNombre,
+      categoria:       r.categoria,
+      correctas:       r.puntaje,
+      total:           r.total,
+      porcentaje:      r.porcentaje,
+      aprobado:        r.aprobado ? "1" : "0",
     });
+    await fetch(SHEET_URL + "?" + params.toString(), { mode: "no-cors" });
   } catch(e){}
 }
 async function loadResults(did) {
