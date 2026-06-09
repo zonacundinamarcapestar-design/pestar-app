@@ -1512,6 +1512,254 @@ const MODULOS = [
       {pregunta:"¿Qué aspecto tiene ECOREX ALFA?", opciones:["Líquido rojo con fuerte olor","Polvo amarillo","Líquido blanco casi inodoro","Gel transparente"], correcta:2},
     ],
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // COMERVET — SALUD PÚBLICA
+  // ══════════════════════════════════════════════════════════════
+  {
+    id:29, nombre:"FLYBUSTER", laboratorio:"Comervet", categoria:"Salud Pública", emoji:"🪲",
+    contenido:{
+      queEs:"FLYBUSTER es una trampa + cebo 100% natural de Comervet para captura masiva de moscas. El cebo es levadura Saccharomyces cerevisiae + bicarbonato de sodio — sin insecticidas, sin venenos, sin olor fuerte. Las moscas entran atraídas por la fermentación y no pueden salir.",
+      paraQueSirve:"Control de moscas en granjas, establos, galpones, porquerizas y cualquier instalación pecuaria donde el uso de insecticidas está restringido o el cliente prefiere soluciones naturales. Ideal para productores orgánicos o certificados.",
+      comoSeUsa:"Disolver el sobre de cebo en agua dentro de la trampa y dejar fermentar 48 horas al sol antes de instalar. Trampa 2 L: cubre 100 m², ubicar a 7–10 m del área a proteger. Trampa 10 L: cubre 700 m², distancia entre trampas 25 m. Vaciar y recargar cuando esté llena.",
+      ventajas:["100% natural: sin insecticidas ni venenos","Trampa 10 L captura hasta 3 millones de moscas","Sin riesgo para animales, personas ni niños","El cliente ve funcionar desde el primer día","Cumple normativas de producción orgánica"],
+      dosificacion:"Trampa 2 L + cebo 50 g: hasta 40.000 moscas, 100 m². Trampa 10 L + cebo 250 g: hasta 3.000.000 moscas, 700 m². Fermentar 48 h antes de instalar. Sin precauciones toxicológicas.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuál es el principio activo del cebo FLYBUSTER?", opciones:["Brodifacouma","Clorpirifos","Levadura Saccharomyces cerevisiae + bicarbonato","Fipronil"], correcta:2},
+      {pregunta:"¿Cuántas moscas puede capturar la trampa de 10 litros?", opciones:["40.000","500.000","3.000.000","10.000"], correcta:2},
+      {pregunta:"¿Cuántas horas hay que fermentar el cebo antes de instalar?", opciones:["1 hora","6 horas","48 horas","1 semana"], correcta:2},
+      {pregunta:"¿Por qué FLYBUSTER es ideal para producción orgánica?", opciones:["Porque es más barato","Porque no contiene insecticidas ni venenos","Porque actúa más rápido","Porque tiene mejor olor"], correcta:1},
+      {pregunta:"¿A qué distancia del área a proteger se instala la trampa de 2 litros?", opciones:["1–2 metros","3–5 metros","7–10 metros","Más de 20 metros"], correcta:2},
+    ],
+  },
+  {
+    id:30, nombre:"ECOGEL®", laboratorio:"Comervet", categoria:"Salud Pública", emoji:"🪲",
+    contenido:{
+      queEs:"ECOGEL® es un gel insecticida cebo de Comervet con Clorpirifos 2% en presentación de jeringa de 5 g. Se aplica en pequeñas gotas donde las cucarachas transitan. Sin aspersión, sin olor, sin evacuación del local.",
+      paraQueSirve:"Control de cucarachas Blattella germanica (rubia), Blatta orientalis (negra) y Periplaneta americana (grande) en granjas, bodegas de alimento, plantas de proceso, restaurantes y cualquier instalación donde las cucarachas son problema de sanidad.",
+      comoSeUsa:"Aplicar pequeñas gotas con la jeringa directamente en grietas, bordes de muebles, detrás de electrodomésticos y lugares donde se observen cucarachas. Cucaracha americana/negra: 2–6 gotas/m². Cucaracha rubia: 1–4 gotas/m². Una gota ≈ 0.04 g. Inspeccionar a 1 semana.",
+      ventajas:["Sin aspersión: no contamina superficies ni alimentos","Sin olor: se puede usar en presencia de alimentos","Efectivo por varios meses una sola aplicación","Jeringa dosificadora: aplicación precisa donde se necesita","Una jeringa de 5 g trata decenas de metros cuadrados"],
+      dosificacion:"Cucaracha americana/negra: 2–6 gotas/m². Cucaracha rubia: 1–4 gotas/m². Una gota ≈ 0.04 g. Jeringa x 5 g. Efectividad por varios meses. Inspeccionar a 1 semana del tratamiento.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuál es el principio activo de ECOGEL®?", opciones:["Brodifacouma","Clorpirifos 2%","Amitraz","Alfacipermetrina"], correcta:1},
+      {pregunta:"¿Cómo se aplica ECOGEL®?", opciones:["Por aspersión","Por nebulización","En pequeñas gotas con jeringa","Disuelto en agua"], correcta:2},
+      {pregunta:"¿Cuántas gotas por m² se usan para cucaracha rubia?", opciones:["2–6 gotas","1–4 gotas","10–15 gotas","20 gotas"], correcta:1},
+      {pregunta:"¿Por qué ECOGEL® se puede usar cerca de alimentos?", opciones:["Porque es natural","Porque no tiene olor y no contamina superficies","Porque es líquido","Porque es incoloro"], correcta:1},
+      {pregunta:"¿Cuándo se debe hacer la primera inspección tras aplicar ECOGEL®?", opciones:["Al día siguiente","A los 3 días","A 1 semana","Al mes"], correcta:2},
+    ],
+  },
+  {
+    id:31, nombre:"GARDENCOL®", laboratorio:"Comervet", categoria:"Salud Pública", emoji:"🪲",
+    contenido:{
+      queEs:"GARDENCOL® es un pegamento adhesivo no tóxico de polibutenos de Comervet en tubo de 135 g. Captura insectos y roedores por contacto sin venenos. No se derrite con el calor ni endurece con el frío — mantiene adherencia indefinidamente.",
+      paraQueSirve:"Captura de roedores, cucarachas e insectos grandes en instalaciones de alimentos, bodegas y granjas donde el uso de venenos está restringido. También para monitoreo de plagas sin intoxicación. Complementa a NEO SERPA-RAT.",
+      comoSeUsa:"Aplicar sobre tablilla de madera o cartón, esperar 30 minutos para que se extienda bien. Colocar un cebo en el centro para atraer al roedor. Instalar junto a paredes o detrás de muebles donde se observen huellas. Eliminar la trampa completa con el animal atrapado.",
+      ventajas:["Sin toxicidad: seguro cerca de niños y mascotas","No se derrite ni endurece: funciona en cualquier clima","Monitoreo sin intoxicación — permite saber si hay plaga activa","Sin olor ni color: discreto e invisible","Complemento ideal de NEO SERPA-RAT"],
+      dosificacion:"Aplicar sobre tablilla, esperar 30 min, colocar cebo en centro. Instalar junto a paredes. Tubo x 135 g. Sin precauciones toxicológicas especiales.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuál es el principio activo de GARDENCOL®?", opciones:["Brodifacouma","Clorpirifos","Polibutenos (pegamento)","Fipronil"], correcta:2},
+      {pregunta:"¿Cuántos minutos hay que esperar después de aplicar para que se extienda?", opciones:["5 minutos","15 minutos","30 minutos","2 horas"], correcta:2},
+      {pregunta:"¿Por qué GARDENCOL® es seguro cerca de niños?", opciones:["Porque actúa lento","Porque es no tóxico","Porque tiene antídoto","Porque es pequeño"], correcta:1},
+      {pregunta:"¿Dónde se debe instalar la trampa con GARDENCOL®?", opciones:["En el centro del cuarto","En el techo","Junto a paredes o detrás de muebles","En el exterior"], correcta:2},
+      {pregunta:"¿Con cuál otro producto de Comervet complementa GARDENCOL®?", opciones:["ECOREX ALFA","FLYBUSTER","NEO SERPA-RAT","ECOGEL®"], correcta:2},
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // QUALIVET — SUPLEMENTOS MASCOTAS
+  // ══════════════════════════════════════════════════════════════
+  {
+    id:32, nombre:"HEPA-TAB™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"HEPA-TAB™ de QualiVet es una tableta hepatoprotectora saborizada con la combinación más completa para proteger y regenerar el hígado: Silimarina 120 mg + Ácido Alfa Lipoico 25 mg + Alcachofa 10 mg + Complejo B + Lecitina + Colina + L-Metionina.",
+      paraQueSirve:"Protección y regeneración hepática en perros con hígado graso, post-tratamientos antibióticos prolongados, intoxicaciones leves y perros adultos mayores. La Silimarina del cardo mariano es el hepatoprotector natural más estudiado en el mundo.",
+      comoSeUsa:"Oral diariamente con o sin alimento. Hasta 4.5 kg: ½ tableta. 4.5–10 kg: 1 tableta. 10–18 kg: 1½ tabletas. Más de 18 kg: 2 tabletas. Tableta saborizada — el perro la acepta sola.",
+      ventajas:["Silimarina 120 mg: la dosis terapéutica efectiva","7 activos hepatoprotectores en una sola tableta","Ácido Alfa Lipoico: antioxidante mitocondrial potente","Alcachofa mejora la función vesicular","Made in USA — QualiVet"],
+      dosificacion:"Hasta 4.5 kg: ½ tab/día. 4.5–10 kg: 1 tab/día. 10–18 kg: 1½ tab/día. Más de 18 kg: 2 tab/día. Caja x 60 tabletas. Reg. ICA No. 13966 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuál es el hepatoprotector principal de HEPA-TAB™?", opciones:["Ácido Alfa Lipoico","Alcachofa","Silimarina","L-Metionina"], correcta:2},
+      {pregunta:"¿Cuántos mg de Silimarina tiene cada tableta?", opciones:["50 mg","80 mg","120 mg","200 mg"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para un perro de 8 kg?", opciones:["½ tableta","1 tableta","1½ tabletas","2 tabletas"], correcta:1},
+      {pregunta:"¿De qué laboratorio es HEPA-TAB™?", opciones:["Coaspharma","Tecnocalidad","QualiVet","Comervet"], correcta:2},
+      {pregunta:"¿Para qué sirve la Alcachofa en HEPA-TAB™?", opciones:["Antibacteriana","Mejora la función vesicular","Antifúngica","Antiparasitaria"], correcta:1},
+    ],
+  },
+  {
+    id:33, nombre:"TRIPLE-OMEGA™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"TRIPLE-OMEGA™ de QualiVet es una tableta saborizada con Omegas 3 y 6 balanceados: Ácido Linoleico 100 mg + GLA 75 mg + EPA 20 mg + DHA 10 mg + Zinc 10 mg + Vitaminas A, D3 y E. Formulado específicamente para piel y pelaje de perros.",
+      paraQueSirve:"Piel reseca, pelaje opaco, prurito crónico por alergias, pérdida de pelo y alopecia nutricional. Los Omegas 3 y 6 nutren el folículo piloso desde adentro. Reduce la inflamación alérgica cutánea hasta en un 40%.",
+      comoSeUsa:"Oral diariamente. Hasta 5 kg: ½ tableta. 6–15 kg: 1 tableta. 16–22 kg: 1½ tabletas. 23–30 kg: 2 tabletas. El dueño nota diferencia en pelaje en 4–6 semanas de uso continuo.",
+      ventajas:["Omegas 3 Y 6 en proporción balanceada — no solo uno","DHA mejora función cerebral en perros mayores","Reduce prurito alérgico hasta 40%","Zinc refuerza sistema inmune","Tableta saborizada: alta aceptación"],
+      dosificacion:"Hasta 5 kg: ½ tab. 6–15 kg: 1 tab. 16–22 kg: 1½ tab. 23–30 kg: 2 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 13370 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuánto puede reducir TRIPLE-OMEGA™ la inflamación alérgica?", opciones:["10%","20%","40%","60%"], correcta:2},
+      {pregunta:"¿Cuántas semanas tarda en verse el efecto en el pelaje?", opciones:["1 semana","2 semanas","4–6 semanas","3 meses"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para un perro de 12 kg?", opciones:["½ tableta","1 tableta","1½ tabletas","2 tabletas"], correcta:1},
+      {pregunta:"¿Para qué sirve el DHA en TRIPLE-OMEGA™?", opciones:["Antiparasitario","Mejora función cerebral en perros mayores","Antibacteriano","Antiinflamatorio articular"], correcta:1},
+      {pregunta:"¿Qué mineral incluye TRIPLE-OMEGA™ además de los Omegas?", opciones:["Hierro","Calcio","Zinc","Selenio"], correcta:2},
+    ],
+  },
+  {
+    id:34, nombre:"VITAMINAS + HIERRO™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"VITAMINAS + HIERRO™ de QualiVet es una tableta antianémica saborizada con Hemoglobina 50 mg + Hierro Carbonil 50 mg + Vitamina B12 500 mcg + B1, B2 y B6. El Hierro Carbonil tiene mayor absorción que el sulfato ferroso convencional.",
+      paraQueSirve:"Perros con anemia, mucosas pálidas, cansancio crónico, recuperación post-cirugía, post-enfermedad severa o con bajo rendimiento energético. Favorece la producción de glóbulos rojos y mejora el transporte de oxígeno.",
+      comoSeUsa:"Oral diariamente. Menos de 13 kg: ½ tableta/día. Más de 13 kg: 1–2 tabletas/día. Mezclado con el alimento o directo.",
+      ventajas:["Hierro Carbonil: mayor absorción que sulfato ferroso","Hemoglobina natural como fuente adicional de hierro","B12 500 mcg: estimula producción de glóbulos rojos","Sin efectos secundarios gastrointestinales del hierro convencional","Tableta saborizada: fácil administración"],
+      dosificacion:"Menos de 13 kg: ½ tab/día. Más de 13 kg: 1–2 tab/día. Oral. Caja x 60 tabletas. Reg. ICA No. 13943 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Qué tipo de hierro contiene VITAMINAS + HIERRO™?", opciones:["Sulfato ferroso","Hierro Dextrano","Hierro Carbonil","Fumarato ferroso"], correcta:2},
+      {pregunta:"¿Cuántos mcg de B12 tiene cada tableta?", opciones:["100 mcg","250 mcg","500 mcg","1000 mcg"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para un perro de 10 kg?", opciones:["½ tableta","1–2 tabletas","3 tabletas","¼ tableta"], correcta:0},
+      {pregunta:"¿Por qué el Hierro Carbonil es mejor que el sulfato ferroso?", opciones:["Es más barato","Mayor absorción y menos efectos gastrointestinales","Tiene mejor sabor","Es más concentrado"], correcta:1},
+      {pregunta:"¿De qué laboratorio es VITAMINAS + HIERRO™?", opciones:["Coaspharma","Tecnocalidad","QualiVet","Comervet"], correcta:2},
+    ],
+  },
+  {
+    id:35, nombre:"AMINOÁCIDOS + VITAMINAS™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"AMINOÁCIDOS + VITAMINAS™ de QualiVet es una tableta saborizada con L-Triptófano 15 mg + L-Teanina 15 mg + Vitamina B6 10 mg + Niacina 10 mg. El L-Triptófano es el precursor directo de la serotonina — el neurotransmisor del bienestar.",
+      paraQueSirve:"Perros con ansiedad crónica, miedo a truenos, viajes o ruidos fuertes, agresividad, estrés por separación o cambios de ambiente. Aporta los aminoácidos que el organismo convierte en serotonina de forma natural, sin sedación.",
+      comoSeUsa:"Oral diariamente o solo en situaciones estresantes. Menos de 4.5 kg: ½ tableta. 4.5–11.5 kg: 1 tableta. Más de 11.5 kg: 2 tabletas. Para eventos puntuales (tormentas, viajes) dar 1–2 horas antes.",
+      ventajas:["L-Triptófano: precursor natural de serotonina","L-Teanina: efecto calmante sin sedación","Sin receta, sin efectos secundarios","Se puede dar diario o solo en eventos estresantes","Tableta saborizada: fácil administración"],
+      dosificacion:"Menos de 4.5 kg: ½ tab. 4.5–11.5 kg: 1 tab. Más de 11.5 kg: 2 tab. Oral. Para eventos: 1–2 h antes. Caja x 60 tabletas. Reg. ICA No. 13924 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Qué neurotransmisor produce el L-Triptófano?", opciones:["Dopamina","Adrenalina","Serotonina","Cortisol"], correcta:2},
+      {pregunta:"¿Cuándo se debe dar AMINOÁCIDOS + VITAMINAS™ para eventos puntuales?", opciones:["Inmediatamente antes","1–2 horas antes","El día anterior","No funciona para eventos"], correcta:1},
+      {pregunta:"¿Produce sedación AMINOÁCIDOS + VITAMINAS™?", opciones:["Sí, siempre","Solo a dosis altas","No, efecto calmante sin sedación","Depende del perro"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para un perro de 8 kg?", opciones:["½ tableta","1 tableta","2 tabletas","3 tabletas"], correcta:1},
+      {pregunta:"¿Para qué condición conductual es la principal indicación?", opciones:["Artritis","Anemia","Ansiedad y estrés","Problemas digestivos"], correcta:2},
+    ],
+  },
+
+  // ── LÍNEA PERRITOS ────────────────────────────────────────────────────────────
+  {
+    id:36, nombre:"PERRITOS Hierro + Vitamina B12™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Hierro + B12™ de QualiVet es una tableta antianémica pequeña y saborizada formulada exclusivamente para razas pequeñas: B12 250 mcg + Hierro Carbonil 25 mg + Cobalto 0.27 mg en tableta de 1.050 mg.",
+      paraQueSirve:"Anemia, bajo apetito y recuperación post-cirugía o post-enfermedad en perros de razas pequeñas. Dosis precisas para el tamaño del animal — un suplemento de perro grande puede ser excesivo para un Chihuahua o Yorkshire.",
+      comoSeUsa:"Oral diariamente. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. Tableta pequeña y saborizada que el perrito acepta sin problema.",
+      ventajas:["Dosis calibradas para razas pequeñas — no es un recorte","Tableta pequeña: fácil de dar a perros miniatura","B12 + Hierro + Cobalto: triada antianémica completa","Estimula el apetito en perros inapetentes","Made in USA — QualiVet"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16689 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuántos mcg de B12 tiene PERRITOS Hierro + B12™?", opciones:["100 mcg","250 mcg","500 mcg","600 mcg"], correcta:1},
+      {pregunta:"¿Para qué tamaño de perro está formulado?", opciones:["Perros grandes","Razas medianas","Razas pequeñas","Todas las razas"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para un perro de 3 kg?", opciones:["1 tableta","1–2 tabletas","2–3 tabletas","½ tableta"], correcta:1},
+      {pregunta:"¿Qué mineral adicional incluye además del Hierro?", opciones:["Zinc","Selenio","Cobalto","Manganeso"], correcta:2},
+      {pregunta:"¿De qué laboratorio es la línea PERRITOS?", opciones:["Coaspharma","Tecnocalidad","QualiVet","Comervet"], correcta:2},
+    ],
+  },
+  {
+    id:37, nombre:"PERRITOS Calcio + Vitamina D3™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Calcio + D3™ de QualiVet es una tableta ósea para razas pequeñas con Calcio 123 mg + Fósforo 42 mg + Vitamina D3 30 UI. La D3 es esencial para que el calcio se absorba correctamente en el intestino.",
+      paraQueSirve:"Prevención de hipocalcemia postparto en perritas gestantes o en lactancia, desarrollo óseo en cachorros, osteoporosis y raquitismo en adultos mayores. Las perritas pequeñas en lactancia son las más vulnerables a convulsiones por hipocalcemia.",
+      comoSeUsa:"Oral diariamente. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. Iniciar en la última semana de gestación y continuar durante la lactancia.",
+      ventajas:["Calcio + Fósforo + D3: la tríada ósea completa","D3 garantiza absorción del calcio","Previene convulsiones por hipocalcemia postparto","Dosis exactas para razas pequeñas","Alta fidelización: el dueño lo da durante toda la gestación"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16690 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Para qué condición crítica es esencial PERRITOS Calcio + D3™?", opciones:["Anemia","Hipocalcemia postparto (convulsiones)","Artritis","Problemas digestivos"], correcta:1},
+      {pregunta:"¿Para qué sirve la Vitamina D3?", opciones:["Antibacteriana","Garantiza la absorción del calcio en el intestino","Antiinflamatoria","Antifúngica"], correcta:1},
+      {pregunta:"¿Cuándo se debe iniciar el suplemento en perritas gestantes?", opciones:["Al inicio de la gestación","En la mitad de la gestación","En la última semana de gestación","Solo después del parto"], correcta:2},
+      {pregunta:"¿Cuántos mg de Calcio tiene cada tableta?", opciones:["50 mg","80 mg","123 mg","200 mg"], correcta:2},
+      {pregunta:"¿Cuál es la dosis para una perrita de 4 kg?", opciones:["½ tableta","1 tableta","1–2 tabletas","3 tabletas"], correcta:2},
+    ],
+  },
+  {
+    id:38, nombre:"PERRITOS Enzimas Digestivas + Probióticos™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Enzimas + Probióticos™ de QualiVet es una tableta digestiva para razas pequeñas con Pancreatina 4X 250 mg + Lactobacillus acidophilus 1×10⁷ UFC. Combina enzimas para descomponer el alimento y probióticos para restaurar la flora intestinal.",
+      paraQueSirve:"Mal aliento, flatulencias excesivas, diarrea crónica intermitente y heces blandas en perros de razas pequeñas. El mal aliento en perros pequeños muchas veces tiene origen intestinal, no dental — PERRITOS Enzimas lo resuelve desde la raíz.",
+      comoSeUsa:"Oral diariamente con el alimento. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. Resultados visibles en 2–3 semanas.",
+      ventajas:["Resuelve mal aliento de origen intestinal","Reduce flatulencias y gases","Heces más firmes en 2–3 semanas","Probiótico + enzimas: doble acción digestiva","Alta rotación — los dueños ven resultados rápido"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral con alimento. Caja x 60 tabletas. Reg. ICA No. 16693 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Qué tipo de enzimas contiene PERRITOS Enzimas + Probióticos™?", opciones:["Enzimas hepáticas","Pancreatina 4X","Enzimas renales","Solo Lipasas"], correcta:1},
+      {pregunta:"¿En cuántas semanas se ven resultados?", opciones:["1 semana","2–3 semanas","2 meses","6 meses"], correcta:1},
+      {pregunta:"¿Por qué el mal aliento en perros pequeños puede tener origen intestinal?", opciones:["Porque comen más","Porque la fermentación intestinal produce gases que salen por la boca","Porque tienen dientes pequeños","Porque no toman agua"], correcta:1},
+      {pregunta:"¿Cuándo se debe dar con el alimento o sin él?", opciones:["Con el alimento","Sin alimento","30 min antes de comer","Solo en ayunas"], correcta:0},
+      {pregunta:"¿Cuál es la dosis para un perro de 6 kg?", opciones:["½ tableta","1 tableta","1–2 tabletas","2–3 tabletas"], correcta:2},
+    ],
+  },
+  {
+    id:39, nombre:"PERRITOS Glucosamina + Condroitina + MSM + Colágeno™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Articular™ de QualiVet es una tableta condroprotectora para razas pequeñas: Glucosamina 250 mg + Condroitin 200 mg + Colágeno Hidrolizado 50 mg + MSM 50 mg. La misma fórmula de ARTRI-VET™ pero en dosis para perros hasta 10 kg.",
+      paraQueSirve:"Artritis, tendinitis, displasia de cadera y recuperación postoperatoria en razas pequeñas como Dachshund, Chihuahua y Bulldog Francés. También como prevención en perros de 5–6 años de estas razas.",
+      comoSeUsa:"Oral diariamente. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. Los primeros resultados se notan en 3–4 semanas de uso continuo.",
+      ventajas:["4 activos en la dosis exacta para razas pequeñas","Glucosamina construye cartílago nuevo","MSM natural antiinflamatorio sin efectos secundarios","Dachshunds y Chihuahuas: razas con alta incidencia de problemas articulares","Alta recompra: tratamiento continuo"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16692 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuántos activos condroprotectores tiene PERRITOS Articular™?", opciones:["1","2","3","4"], correcta:3},
+      {pregunta:"¿En cuántas semanas se notan los primeros resultados?", opciones:["1 semana","3–4 semanas","3 meses","6 meses"], correcta:1},
+      {pregunta:"¿Cuál es la dosis para un perro de 7 kg?", opciones:["1 tableta","1–2 tabletas","2–3 tabletas","4 tabletas"], correcta:2},
+      {pregunta:"¿Cuál raza pequeña tiene alta incidencia de problemas articulares por su morfología?", opciones:["Poodle","Pomerania","Dachshund","Maltés"], correcta:2},
+      {pregunta:"¿Cuántos mg de Glucosamina tiene cada tableta PERRITOS vs ARTRI-VET™?", opciones:["Igual: 600 mg","PERRITOS 250 mg vs ARTRI-VET 600 mg","PERRITOS 600 mg vs ARTRI-VET 250 mg","Ambos 500 mg"], correcta:1},
+    ],
+  },
+  {
+    id:40, nombre:"PERRITOS Silimarina + Ácido Lipoico + Complejo B + Alcachofa™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Hepático™ de QualiVet es una tableta hepatoprotectora para razas pequeñas: Silimarina 50 mg + Ácido Alfa Lipoico 7.5 mg + Alcachofa 5 mg + Complejo B + Lecitina + Colina + L-Metionina. Versión pequeña de HEPA-TAB™.",
+      paraQueSirve:"Protección hepática en perros de razas pequeñas expuestos a múltiples medicamentos, alimentos procesados o ambientes urbanos. Los perros pequeños son especialmente sensibles al hígado graso y acumulación de toxinas.",
+      comoSeUsa:"Oral diariamente. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. Ideal post-tratamientos antibióticos o como suplemento preventivo en adultos mayores.",
+      ventajas:["Silimarina 50 mg: el hepatoprotector natural más estudiado","Dosis correctas para razas pequeñas hasta 10 kg","Ideal post-antibióticos prolongados","Alcachofa facilita el vaciamiento biliar","Alta rotación en tiendas de mascotas urbanas"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16705 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuántos mg de Silimarina tiene PERRITOS Hepático™?", opciones:["25 mg","50 mg","120 mg","200 mg"], correcta:1},
+      {pregunta:"¿Cuántos mg de Silimarina tiene HEPA-TAB™ en comparación?", opciones:["50 mg","80 mg","120 mg","200 mg"], correcta:2},
+      {pregunta:"¿Por qué los perros pequeños son especialmente vulnerables al hígado graso?", opciones:["Porque corren menos","Porque reciben múltiples medicamentos y comen alimentos procesados","Porque beben poca agua","Porque duermen mucho"], correcta:1},
+      {pregunta:"¿Cuál es la dosis para un perro de 4 kg?", opciones:["½ tableta","1 tableta","1–2 tabletas","3 tabletas"], correcta:2},
+      {pregunta:"¿Cuándo es especialmente útil dar PERRITOS Hepático™?", opciones:["Solo en cachorros","Post-tratamientos antibióticos prolongados","Solo en perros obesos","Durante el verano"], correcta:1},
+    ],
+  },
+  {
+    id:41, nombre:"PERRITOS Vitaminas + Minerales™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Vitaminas + Minerales™ de QualiVet es el multivitamínico completo para razas pequeñas: Vitaminas A, D3, E + Complejo B completo (B1, B2, B6, B12, B5, Niacina, Ácido fólico, Colina) + 8 minerales (Ca, P, Fe, Cu, Co, I, Zn, Mn). Un solo producto cubre todo.",
+      paraQueSirve:"Suplemento diario para perros pequeños débiles, quisquillosos con la comida, gestantes, lactantes o adultos mayores de 7 años. También para estimular el apetito en perros inapetentes. El multivitamínico que todo perro pequeño debería tomar.",
+      comoSeUsa:"Oral diariamente como premio o mezclado con el alimento. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. El perro la busca solo por su sabor a tocino.",
+      ventajas:["Cubre TODAS las necesidades vitamínico-minerales en 1 tableta","8 minerales esenciales incluyendo Yodo y Cobalto","Estimula el apetito en perros quisquillosos","Sabor a tocino: el perro lo pide solo","Ideal para adultos mayores de 7 años"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16691 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuántos minerales esenciales incluye PERRITOS Vitaminas + Minerales™?", opciones:["4","6","8","10"], correcta:2},
+      {pregunta:"¿Para qué edad de perro es especialmente recomendado como preventivo?", opciones:["Cachorros menores de 6 meses","Adultos de 2–3 años","Adultos mayores de 7 años","Solo gestantes"], correcta:2},
+      {pregunta:"¿Por qué el perro acepta fácilmente esta tableta?", opciones:["Porque es líquida","Porque tiene sabor a tocino","Porque es muy pequeña","Porque no tiene sabor"], correcta:1},
+      {pregunta:"¿Cuál es la dosis para un perro de 2 kg?", opciones:["½ tableta","1 tableta","1–2 tabletas","3 tabletas"], correcta:1},
+      {pregunta:"¿Cuántas vitaminas del complejo B incluye?", opciones:["3","5","7","8 (B1,B2,B6,B12,B5,Niacina,Ác.fólico,Colina)"], correcta:3},
+    ],
+  },
+  {
+    id:42, nombre:"PERRITOS Omegas + Vitaminas + Zinc™", laboratorio:"QualiVet", categoria:"Suplementos Mascotas", emoji:"🐾",
+    contenido:{
+      queEs:"PERRITOS Omegas + Zinc™ de QualiVet es una tableta saborizada para razas pequeñas con Omega 6 (Linoleico 50 mg + GLA 30 mg) + Omega 3 (DHA 10 mg + EPA 5 mg) + Zinc 5 mg + Vitaminas A, D3 y E. Versión pequeña de TRIPLE-OMEGA™.",
+      paraQueSirve:"Piel sensible, pelo opaco, alopecia nutricional y alergias cutáneas en razas pequeñas. Yorkshires, Malteses y Poodles son especialmente propensos a perder pelo y tener piel sensible — PERRITOS Omegas los cuida desde adentro.",
+      comoSeUsa:"Oral diariamente. Menos de 2.5 kg: 1 tableta. 2.5–5 kg: 1–2 tabletas. 5–10 kg: 2–3 tabletas. En 4–6 semanas el dueño nota pelaje más brillante, menos caída y menos rascado.",
+      ventajas:["Omegas 3 y 6 en proporción balanceada","Zinc regula la producción de sebo","Vitaminas antioxidantes protegen contra daño ambiental","Especialmente indicado para Yorkshire, Maltés y Poodle","Alta fidelización: se ve funcionar en semanas"],
+      dosificacion:"Menos de 2.5 kg: 1 tab. 2.5–5 kg: 1–2 tab. 5–10 kg: 2–3 tab. Oral diario. Caja x 60 tabletas. Reg. ICA No. 16706 SL.",
+    },
+    preguntas:[
+      {pregunta:"¿Cuántas semanas tarda en notarse el efecto en el pelaje?", opciones:["1 semana","2 semanas","4–6 semanas","3 meses"], correcta:2},
+      {pregunta:"¿Para qué razas es especialmente indicado PERRITOS Omegas + Zinc™?", opciones:["Pastor Alemán y Labrador","Yorkshire, Maltés y Poodle","Bulldog y Boxer","Dachshund y Chihuahua"], correcta:1},
+      {pregunta:"¿Para qué sirve el Zinc en esta fórmula?", opciones:["Antibacteriano","Regula la producción de sebo","Antiparasitario","Antifúngico"], correcta:1},
+      {pregunta:"¿Cuál es la dosis para un perro de 5 kg?", opciones:["1 tableta","1–2 tabletas","2–3 tabletas","½ tableta"], correcta:1},
+      {pregunta:"¿Cuál es la diferencia de Omega 6 entre PERRITOS Omegas y TRIPLE-OMEGA™?", opciones:["Son iguales","PERRITOS tiene dosis menores (Linoleico 50 mg vs 100 mg)","PERRITOS tiene más","No tienen Omega 6"], correcta:1},
+    ],
+  },
 ];
 
 
@@ -1680,7 +1928,7 @@ function Home({ distribuidor, onGoCatalog, onGoTraining, onSalir }) {
             <div style={{fontSize:"20px",fontWeight:900,color:"#1a1a1a",marginBottom:"8px"}}>Módulo de Capacitación</div>
             <div style={{fontSize:"14px",color:"#555555",lineHeight:1.6,marginBottom:"16px"}}>Aprende sobre los productos clave, realiza evaluaciones y registra tus resultados para seguimiento.</div>
             <div style={{display:"flex",gap:"8px",flexWrap:"wrap"}}>
-              {["28 módulos","5 temas por producto","Evaluación con nota","Registro de resultados"].map(t=>(
+              {["44 módulos","5 temas por producto","Evaluación con nota","Registro de resultados"].map(t=>(
                 <span key={t} style={{background:"rgba(184,134,11,0.1)",color:"#8B6914",borderRadius:"999px",padding:"4px 10px",fontSize:"12px",fontWeight:600}}>{t}</span>
               ))}
             </div>
