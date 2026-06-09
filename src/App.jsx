@@ -2126,7 +2126,7 @@ function Menu({ distribuidor, onSelect, onVerResultados, onSalir }) {
 // ── APRENDIZAJE ───────────────────────────────────────────────────────────────
 function ModuloAprendizaje({ modulo, onVolver, onEvaluar }) {
   const [tabActiva, setTabActiva] = useState("queEs");
-  const tab = TABS.find(t=>t.id===tabActiva);
+  const tab = TABS_CAP.find(t=>t.id===tabActiva);
   const contenido = modulo.contenido[tabActiva];
   return (
     <div style={{minHeight:"100vh",background:"#f5f5f5",fontFamily:"'DM Sans',sans-serif"}}>
@@ -2138,7 +2138,7 @@ function ModuloAprendizaje({ modulo, onVolver, onEvaluar }) {
         </div>
       </div>
       <div style={{display:"flex",background:"#fff",borderBottom:"2px solid rgba(45,122,45,0.15)",overflowX:"auto"}}>
-        {TABS.map(t=>(
+        {TABS_CAP.map(t=>(
           <button key={t.id} onClick={()=>setTabActiva(t.id)}
             style={{background:"none",border:"none",borderBottom:tabActiva===t.id?"3px solid #2d7a2d":"3px solid transparent",color:tabActiva===t.id?"#1a5c1a":"#444444",fontWeight:tabActiva===t.id?700:500,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",fontSize:"13px",whiteSpace:"nowrap"}}>
             {t.icon} {t.label}
@@ -2158,14 +2158,14 @@ function ModuloAprendizaje({ modulo, onVolver, onEvaluar }) {
         </div>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <div style={{display:"flex",gap:"6px"}}>
-            {TABS.map(t=><div key={t.id} style={{width:"8px",height:"8px",borderRadius:"50%",background:t.id===tabActiva?"#2d7a2d":"rgba(45,122,45,0.25)"}}/>)}
+            {TABS_CAP.map(t=><div key={t.id} style={{width:"8px",height:"8px",borderRadius:"50%",background:t.id===tabActiva?"#2d7a2d":"rgba(45,122,45,0.25)"}}/>)}
           </div>
           {tabActiva==="dosificacion" ? (
             <button onClick={onEvaluar} style={{background:"#2d7a2d",border:"none",color:"#fff",borderRadius:"10px",padding:"12px 24px",fontWeight:800,fontSize:"14px",cursor:"pointer",fontFamily:"inherit"}}>
               ✅ Ir a la evaluación →
             </button>
           ) : (
-            <button onClick={()=>{const idx=TABS.findIndex(t=>t.id===tabActiva);if(idx<TABS.length-1)setTabActiva(TABS[idx+1].id);}}
+            <button onClick={()=>{const idx=TABS_CAP.findIndex(t=>t.id===tabActiva);if(idx<TABS_CAP.length-1)setTabActiva(TABS_CAP[idx+1].id);}}
               style={{background:"rgba(45,122,45,0.1)",border:"1px solid rgba(45,122,45,0.25)",color:"#1a5c1a",borderRadius:"10px",padding:"10px 20px",fontWeight:700,fontSize:"14px",cursor:"pointer",fontFamily:"inherit"}}>
               Siguiente →
             </button>
