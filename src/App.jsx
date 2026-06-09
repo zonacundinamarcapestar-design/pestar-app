@@ -2058,7 +2058,7 @@ function Menu({ distribuidor, onSelect, onVerResultados, onSalir }) {
     return matchCat && matchLab && matchBus;
   });
 
-  const selStyle = {background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:"8px",padding:"7px 12px",color:"#ffffff",fontSize:"12px",fontWeight:600,cursor:"pointer",outline:"none",appearance:"none",WebkitAppearance:"none",fontFamily:"inherit"};
+  const selStyle = {background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:"8px",padding:"7px 12px",color:"#ffffff",fontSize:"12px",fontWeight:600,cursor:"pointer",outline:"none",appearance:"none",WebkitAppearance:"none",fontFamily:"inherit",width:"auto",flexShrink:0};
 
   return (
     <div style={{minHeight:"100vh",background:"#f5f5f5",fontFamily:"'DM Sans',sans-serif"}}>
