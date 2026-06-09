@@ -4,11 +4,13 @@ import { useState, useEffect, useRef } from "react";
 
 // ─── DISTRIBUIDORES ───────────────────────────────────────────────────────────
 const DISTRIBUIDORES = [
-  { id: "D01", pin: "1234", nombre: "Agroveterinaria El Campo",   ciudad: "Medellín" },
-  { id: "D02", pin: "5678", nombre: "Distribuciones AgroNorte",   ciudad: "Montería" },
-  { id: "D03", pin: "9012", nombre: "VetSupplies del Llano",      ciudad: "Villavicencio" },
-  { id: "D04", pin: "3456", nombre: "Casa Agrícola Palmira",      ciudad: "Palmira" },
-  { id: "D05", pin: "7890", nombre: "Agrovex Caribe",             ciudad: "Barranquilla" },
+  { id: "D01", pin: "8581", nombre: "El Establo",                    ciudad: "Colombia" },
+  { id: "D02", pin: "4648", nombre: "Pet Suplet",                    ciudad: "Colombia" },
+  { id: "D03", pin: "3429", nombre: "Superagro",                     ciudad: "Colombia" },
+  { id: "D04", pin: "3063", nombre: "Concentrados El Rancho",        ciudad: "Colombia" },
+  { id: "D05", pin: "5815", nombre: "Animalagro",                    ciudad: "Colombia" },
+  { id: "D06", pin: "3012", nombre: "Agroveterinaria Servicampo",    ciudad: "Colombia" },
+  { id: "D07", pin: "1234", nombre: "Cliente General",               ciudad: "Colombia" },
 ];
 
 
