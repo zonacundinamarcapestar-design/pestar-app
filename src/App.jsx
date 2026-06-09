@@ -2428,35 +2428,106 @@ function ModuloAprendizaje({ modulo, onVolver, onEvaluar }) {
 
 // ── EVALUACIÓN ────────────────────────────────────────────────────────────────
 function Evaluacion({ modulo, distribuidor, onTerminar, onVolver }) {
+  const [nombre, setNombre] = useState("");
+  const [nombreConfirmado, setNombreConfirmado] = useState(false);
   const [current, setCurrent] = useState(0);
   const [respuestas, setRespuestas] = useState([]);
   const [seleccionada, setSeleccionada] = useState(null);
   const [confirmada, setConfirmada] = useState(false);
   const [finalizado, setFinalizado] = useState(false);
-  const [nombre, setNombre] = useState("");
   const [guardando, setGuardando] = useState(false);
   const pregunta = modulo.preguntas[current];
   const total = modulo.preguntas.length;
   const puntaje = respuestas.filter(r=>r.correcta).length;
 
-  const siguiente = () => {
+  // Validar que tenga nombre Y apellido (mínimo 2 palabras)
+  const nombreValido = nombre.trim().split(/\s+/).length >= 2;
+
+  const siguiente = async () => {
     const nuevas = [...respuestas,{correcta:seleccionada===pregunta.correcta,seleccionada,correctaIdx:pregunta.correcta}];
     setRespuestas(nuevas);
-    if(current+1<total){ setCurrent(c=>c+1); setSeleccionada(null); setConfirmada(false); }
-    else setFinalizado(true);
+    if(current+1<total){
+      setCurrent(c=>c+1); setSeleccionada(null); setConfirmada(false);
+    } else {
+      // Auto-guardar al terminar la última pregunta
+      setGuardando(true);
+      const pts = nuevas.filter(r=>r.correcta).length;
+      const pct = Math.round((pts/total)*100);
+      const result = {
+        distribuidorId:distribuidor.id, distribuidorNombre:distribuidor.nombre,
+        vendedor:nombre.trim(), productoId:modulo.id, productoNombre:modulo.nombre,
+        categoria:modulo.categoria, puntaje:pts, total,
+        porcentaje:pct, aprobado:pct>=60,
+        timestamp:Date.now(), fecha:new Date().toLocaleDateString("es-CO"),
+      };
+      await saveResult(result);
+      setGuardando(false);
+      setFinalizado(true);
+    }
   };
 
-  const guardar = async () => {
-    if(!nombre.trim()) return;
-    setGuardando(true);
-    const result = {distribuidorId:distribuidor.id,distribuidorNombre:distribuidor.nombre,vendedor:nombre.trim(),productoId:modulo.id,productoNombre:modulo.nombre,categoria:modulo.categoria,puntaje,total,porcentaje:Math.round((puntaje/total)*100),aprobado:Math.round((puntaje/total)*100)>=60,timestamp:Date.now(),fecha:new Date().toLocaleDateString("es-CO")};
-    await saveResult(result);
-    setGuardando(false);
-    onTerminar(result);
-  };
+  // Pantalla 1 — Solicitar nombre completo con apellidos
+  if(!nombreConfirmado) {
+    return (
+      <div style={{minHeight:"100vh",background:"#f5f5f5",fontFamily:"'DM Sans',sans-serif",display:"flex",flexDirection:"column"}}>
+        <div style={{background:"#1a5c1a",padding:"14px 20px",display:"flex",alignItems:"center",gap:"12px"}}>
+          <button onClick={onVolver} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",borderRadius:"8px",padding:"6px 12px",cursor:"pointer",fontSize:"18px",lineHeight:1}}>←</button>
+          <div>
+            <div style={{fontSize:"16px",fontWeight:900,color:"#fff"}}>{modulo.nombre}</div>
+            <div style={{fontSize:"11px",color:"rgba(255,255,255,0.8)"}}>Evaluación · {modulo.laboratorio}</div>
+          </div>
+        </div>
+        <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px"}}>
+          <div style={{background:"#fff",border:"1px solid rgba(45,122,45,0.25)",borderRadius:"20px",padding:"36px 28px",width:"100%",maxWidth:"420px",boxShadow:"0 8px 32px rgba(45,122,45,0.12)"}}>
+            <div style={{textAlign:"center",marginBottom:"28px"}}>
+              <div style={{fontSize:"48px",marginBottom:"12px"}}>📝</div>
+              <div style={{fontSize:"18px",fontWeight:900,color:"#1a1a1a",marginBottom:"6px"}}>Antes de comenzar</div>
+              <div style={{fontSize:"13px",color:"#555555",lineHeight:1.6}}>Ingresa tu nombre completo con apellidos. Este dato quedará registrado junto con tu resultado.</div>
+            </div>
+            <div style={{marginBottom:"8px"}}>
+              <label style={{fontSize:"12px",fontWeight:700,color:"#1a5c1a",letterSpacing:"0.06em",textTransform:"uppercase",display:"block",marginBottom:"8px"}}>Nombre completo con apellidos</label>
+              <input
+                value={nombre}
+                onChange={e=>setNombre(e.target.value)}
+                onKeyDown={e=>{ if(e.key==="Enter" && nombreValido) setNombreConfirmado(true); }}
+                placeholder="Ej: Juan Carlos Pérez Gómez"
+                autoFocus
+                style={{width:"100%",border:`1px solid ${nombreValido?"rgba(45,122,45,0.4)":"rgba(45,122,45,0.2)"}`,borderRadius:"10px",padding:"12px 16px",fontSize:"15px",fontFamily:"inherit",outline:"none",color:"#1a1a1a",transition:"border 0.2s"}}
+              />
+              {nombre.trim().length>0 && !nombreValido && (
+                <div style={{fontSize:"12px",color:"#e53e3e",marginTop:"6px",fontWeight:600}}>⚠ Ingresa nombre Y apellidos (mínimo 2 palabras)</div>
+              )}
+              {nombreValido && (
+                <div style={{fontSize:"12px",color:"#2d7a2d",marginTop:"6px",fontWeight:600}}>✓ Listo</div>
+              )}
+            </div>
+            <button
+              onClick={()=>setNombreConfirmado(true)}
+              disabled={!nombreValido}
+              style={{width:"100%",background:nombreValido?"#2d7a2d":"rgba(45,122,45,0.25)",border:"none",color:"#fff",borderRadius:"12px",padding:"14px",fontWeight:800,fontSize:"15px",cursor:nombreValido?"pointer":"not-allowed",fontFamily:"inherit",marginTop:"16px",transition:"background 0.2s"}}>
+              Comenzar evaluación →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Pantalla guardando (transición automática)
+  if(guardando) {
+    return (
+      <div style={{minHeight:"100vh",background:"#f5f5f5",fontFamily:"'DM Sans',sans-serif",display:"flex",alignItems:"center",justifyContent:"center"}}>
+        <div style={{textAlign:"center",padding:"40px"}}>
+          <div style={{fontSize:"48px",marginBottom:"16px"}}>💾</div>
+          <div style={{fontSize:"16px",fontWeight:700,color:"#1a5c1a"}}>Guardando resultado...</div>
+        </div>
+      </div>
+    );
+  }
 
   if(finalizado) {
-    const pct = Math.round((puntaje/total)*100);
+    const pts = respuestas.filter(r=>r.correcta).length;
+    const pct = Math.round((pts/total)*100);
     const aprobado = pct>=60;
     return (
       <div style={{minHeight:"100vh",background:"#f5f5f5",fontFamily:"'DM Sans',sans-serif"}}>
@@ -2466,22 +2537,15 @@ function Evaluacion({ modulo, distribuidor, onTerminar, onVolver }) {
         <div style={{padding:"28px 20px",maxWidth:"520px",margin:"0 auto"}}>
           <div style={{background:"#fff",border:`2px solid ${aprobado?"#2d7a2d":"#f87171"}`,borderRadius:"16px",padding:"28px",textAlign:"center",marginBottom:"16px"}}>
             <div style={{fontSize:"52px",marginBottom:"10px"}}>{aprobado?"🏆":"📚"}</div>
+            <div style={{fontSize:"20px",fontWeight:800,color:"#333333",marginBottom:"4px"}}>{nombre.trim()}</div>
             <div style={{fontSize:"44px",fontWeight:900,color:aprobado?"#1a5c1a":"#e53e3e",marginBottom:"4px"}}>{pct}%</div>
             <div style={{fontSize:"15px",fontWeight:700,color:aprobado?"#2d7a2d":"#e53e3e",marginBottom:"4px"}}>{aprobado?"¡Evaluación aprobada!":"No aprobado — repasa el módulo"}</div>
-            <div style={{fontSize:"13px",color:"#555555"}}>{puntaje} de {total} correctas · Mínimo: 60%</div>
-          </div>
-          <div style={{background:"#fff",border:"1px solid rgba(45,122,45,0.22)",borderRadius:"12px",padding:"18px",marginBottom:"16px"}}>
-            <div style={{fontSize:"13px",fontWeight:700,color:"#1a5c1a",marginBottom:"10px"}}>📝 Registrar resultado</div>
-            <input value={nombre} onChange={e=>setNombre(e.target.value)} placeholder="Tu nombre completo"
-              style={{width:"100%",border:"1px solid rgba(45,122,45,0.3)",borderRadius:"8px",padding:"10px 14px",fontSize:"14px",fontFamily:"inherit",outline:"none",marginBottom:"10px",color:"#1a1a1a"}}/>
-            <button onClick={guardar} disabled={!nombre.trim()||guardando}
-              style={{width:"100%",background:nombre.trim()?"#2d7a2d":"rgba(45,122,45,0.3)",border:"none",color:"#fff",borderRadius:"10px",padding:"12px",fontWeight:800,fontSize:"14px",cursor:nombre.trim()?"pointer":"not-allowed",fontFamily:"inherit"}}>
-              {guardando?"Guardando...":"💾 Guardar y ver registros"}
-            </button>
+            <div style={{fontSize:"13px",color:"#555555"}}>{pts} de {total} correctas · Mínimo: 60%</div>
+            <div style={{fontSize:"12px",color:"#888888",marginTop:"8px"}}>✓ Resultado guardado automáticamente</div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"10px"}}>
             <button onClick={onVolver} style={{background:"rgba(45,122,45,0.08)",border:"1px solid rgba(45,122,45,0.25)",color:"#1a5c1a",borderRadius:"10px",padding:"11px",fontWeight:700,cursor:"pointer",fontFamily:"inherit",fontSize:"13px"}}>← Menú</button>
-            <button onClick={()=>{setCurrent(0);setRespuestas([]);setSeleccionada(null);setConfirmada(false);setFinalizado(false);setNombre("");}}
+            <button onClick={()=>{setCurrent(0);setRespuestas([]);setSeleccionada(null);setConfirmada(false);setFinalizado(false);setNombreConfirmado(false);setNombre("");}}
               style={{background:"#2d7a2d",border:"none",color:"#fff",borderRadius:"10px",padding:"11px",fontWeight:700,cursor:"pointer",fontFamily:"inherit",fontSize:"13px"}}>🔄 Repetir</button>
           </div>
         </div>
