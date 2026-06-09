@@ -1802,17 +1802,35 @@ const catColors = {
 };
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbyfNK1T50sS3kclfxdGR-hXLV4NIqRZ7m0BlbCytJcB0WfHv0g-PJHx04YwmWNNXdlCgw/exec";
+
 async function saveResult(r) {
-  try { await window.storage.set(`eval_${r.distribuidorId}_${Date.now()}`,JSON.stringify(r),true); } catch(e){}
+  try {
+    const key = `pestar_eval_${r.distribuidorId}_${Date.now()}`;
+    localStorage.setItem(key, JSON.stringify(r));
+  } catch(e){}
+  try {
+    await fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(r),
+    });
+  } catch(e){}
 }
 async function loadResults(did) {
   try {
-    const list = await window.storage.list("eval_",true);
     const results = [];
-    for (const key of (list?.keys||[])) {
-      try { const item = await window.storage.get(key,true); if(item?.value){const p=JSON.parse(item.value);if(p.distribuidorId===did)results.push(p);} } catch(e){}
+    for(let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if(key && key.startsWith(`pestar_eval_${did}`)) {
+        try {
+          const p = JSON.parse(localStorage.getItem(key));
+          if(p) results.push(p);
+        } catch(e){}
+      }
     }
-    return results.sort((a,b)=>b.timestamp-a.timestamp);
+    return results.sort((a,b) => b.timestamp - a.timestamp);
   } catch(e){ return []; }
 }
 
